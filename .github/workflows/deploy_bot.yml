@@ -1,0 +1,23 @@
+name: Deploy Telegram Bot to VPS
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: alpine:latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Deploy  
+      uses: appleboy/ssh-action@master
+      with: 
+        host: ${{ secrets.NETX_VPS }}
+        username: ${{ secrets.NETX_USER }}
+        key: ${{ secrets.NETX_KEY }}
+        script: |
+          cd ~/src 
+          git clone https://github.com/gokunull/powerstatus_bot.git
+          cp ~/src/powerstatus_bot/* ${{ secrets.DIR }}
+  
