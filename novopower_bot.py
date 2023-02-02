@@ -1,9 +1,10 @@
 import telebot
 import requests
 import emoji
+import sys
 
-url = "ddns_url"
-bot = telebot.TeleBot('TOKEN')
+url = sys.argv[1]
+bot = telebot.TeleBot(sys.argv[2])
 
 @bot.message_handler(content_types=['text'])
 

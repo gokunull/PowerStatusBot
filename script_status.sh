@@ -3,11 +3,9 @@
 # CRONTAB SCHEDULE
 # SHELL=/bin/bash
 #
-# */10 * * * * /home/PowerStatusBot/script_status.sh > /tmp/script_status.log 2>&1
+# */10 * * * * ${DIR}/script_status.sh > /tmp/script_status.log 2>&1
 
 # VARIABLES
-DIR="/home/powerstatus_bot"
-URL="ddns_url"
 curl=$(curl -o /dev/null -s -w "%{http_code}\n" ${URL})
 process=$(ps -aux | grep -io "[p]ython3")
 status_uptime=$(tail -n1 ${DIR}/logs/router.log | grep -io "UPTIME")
