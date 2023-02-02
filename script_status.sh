@@ -26,7 +26,7 @@ fi
 if [[ ${curl} == "200" && ${status_downtime} == "DOWNTIME" ]]; then
         echo UPTIME "->" $(date +"%T [%Y-%m-%d]") >> ${DIR}/logs/router.log
         tail -n1 ${DIR}/logs/router.log > ~/current_status.log
-elif [[ ${curl} == "503" && ${status_uptime} == "UPTIME" ]]; then
+elif [[ ${curl} != "200" && ${status_uptime} == "UPTIME" ]]; then
         echo DOWNTIME "->" $(date +"%T [%Y-%m-%d]") >> ${DIR}/logs/router.log
         tail -n1 ${DIR}/logs/router.log > ~/current_status.log
 fi
