@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: alpine:latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v1
@@ -19,5 +19,4 @@ jobs:
         script: |
           cd ~/src 
           git clone https://github.com/gokunull/powerstatus_bot.git
-          cp ~/src/powerstatus_bot/* ${{ secrets.DIR }}
   
