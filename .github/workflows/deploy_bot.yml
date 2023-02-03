@@ -5,8 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: self-hosted
-    environment: main
+    runs-on: ubuntu:latest
 
     steps:
     - uses: actions/checkout@v1
@@ -18,6 +17,6 @@ jobs:
         username: ${{ secrets.NETX_USER }}
         key: ${{ secrets.NETX_KEY }}
         script: |
-          cd /home/github-runner/src
+          cd ~/src
           git clone https://github.com/gokunull/powerstatus_bot.git
   
