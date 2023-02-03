@@ -17,6 +17,6 @@ jobs:
         username: ${{ secrets.NETX_USER }}
         key: ${{ secrets.NETX_KEY }}
         script: |
-          cd ~/src 
+          cd /home/github-runner/src
           git clone https://github.com/gokunull/powerstatus_bot.git
   
